@@ -5,44 +5,47 @@ from typing import TYPE_CHECKING
 from BaseClasses import Item, ItemClassification
 
 if TYPE_CHECKING:
-    from .world import APQuestWorld
+    from .world import AstroneerWorld
 
 # Every item must have a unique integer ID associated with it.
 # We will have a lookup from item name to ID here that, in world.py, we will import and bind to the world class.
 # Even if an item doesn't exist on specific options, it must be present in this lookup.
 ITEM_NAME_TO_ID = {
-    "Key": 1,
-    "Sword": 2,
-    "Shield": 3,
-    "Hammer": 4,
-    "Health Upgrade": 5,
-    "Confetti Cannon": 6,
-    "Math Trap": 7,
+    # xx(type)
+    # 11(research catalog items) (we start at 11 because 01 is just 1)
+    "Floodlight": 110001,
+    "Small Shuttle": 110002,
+    "Large Printer": 110003, # Unlocked by defualt
+    "Solid-Fuel Thruster": 110004,
+    "Smelting Furnace": 110005,
+    "Small Solar": 110006,
+    # 12(Filler)
+    "Compound": 121,
 }
 
 # Items should have a defined default classification.
 # In our case, we will make a dictionary from item name to classification.
 DEFAULT_ITEM_CLASSIFICATIONS = {
-    "Key": ItemClassification.progression,
-    "Sword": ItemClassification.progression | ItemClassification.useful,  # Items can have multiple classifications.
-    "Shield": ItemClassification.progression,
-    "Hammer": ItemClassification.progression,
-    "Health Upgrade": ItemClassification.useful,
-    "Confetti Cannon": ItemClassification.filler,
-    "Math Trap": ItemClassification.trap,
+    "Floodlight": ItemClassification.filler,
+    "Small Shuttle": ItemClassification.progression,
+    "Large Printer": ItemClassification.progression,
+    "Solid-Fuel Thruster": ItemClassification.progression,
+    "Smelting Furnace": ItemClassification.progression,
+    "Small Solar": ItemClassification.progression | ItemClassification.useful,
+    "Compound": ItemClassification.filler,
 }
 
 
 # Each Item instance must correctly report the "game" it belongs to.
 # To make this simple, it is common practice to subclass the basic Item class and override the "game" field.
-class APQuestItem(Item):
-    game = "APQuest"
+class AstroneerItem(Item):
+    game = "Astroneer"
 
 
 # Ontop of our regular itempool, our world must be able to create arbitrary amounts of filler as requested by core.
 # To do this, it must define a function called world.get_filler_item_name(), which we will define in world.py later.
 # For now, let's make a function that returns the name of a random filler item here in items.py.
-def get_random_filler_item_name(world: APQuestWorld) -> str:
+def get_random_filler_item_name(world: AstroneerWorld) -> str:
     # APQuest has an option called "trap_chance".
     # This is the percentage chance that each filler item is a Math Trap instead of a Confetti Cannon.
     # For this purpose, we need to use a random generator.
@@ -50,12 +53,12 @@ def get_random_filler_item_name(world: APQuestWorld) -> str:
     # IMPORTANT: Whenever you need to use a random generator, you must use world.random.
     # This ensures that generating with the same generator seed twice yields the same output.
     # DO NOT use a bare random object from Python's built-in random module.
-    if world.random.randint(0, 99) < world.options.trap_chance:
-        return "Math Trap"
-    return "Confetti Cannon"
+    #if world.random.randint(0, 99) < world.options.trap_chance:
+    #    return "Math Trap"
+    return "Compound"
 
 
-def create_item_with_correct_classification(world: APQuestWorld, name: str) -> APQuestItem:
+def create_item_with_correct_classification(world: AstroneerWorld, name: str) -> AstroneerItem:
     # Our world class must have a create_item() function that can create any of our items by name at any time.
     # So, we make this helper function that creates the item by name with the correct classification.
     # Note: This function's content could just be the contents of world.create_item in world.py directly,
@@ -64,14 +67,14 @@ def create_item_with_correct_classification(world: APQuestWorld, name: str) -> A
 
     # It is perfectly normal and valid for an item's classification to differ based on the player's options.
     # In our case, Health Upgrades are only relevant to logic (and thus labeled as "progression") in hard mode.
-    if name == "Health Upgrade" and world.options.hard_mode:
-        classification = ItemClassification.progression
+    #if name == "Health Upgrade" and world.options.hard_mode:
+        #classification = ItemClassification.progression
 
-    return APQuestItem(name, classification, ITEM_NAME_TO_ID[name], world.player)
+    return AstroneerItem(name, classification, ITEM_NAME_TO_ID[name], world.player)
 
 
 # With those two helper functions defined, let's now get to actually creating and submitting our itempool.
-def create_all_items(world: APQuestWorld) -> None:
+def create_all_items(world: AstroneerWorld) -> None:
     # This is the function in which we will create all the items that this world submits to the multiworld item pool.
     # There must be exactly as many items as there are locations.
     # In our case, there are either six or seven locations.
@@ -82,21 +85,21 @@ def create_all_items(world: APQuestWorld) -> None:
     # First, we create a list containing all the items that always exist.
 
     itempool: list[Item] = [
-        world.create_item("Key"),
-        world.create_item("Sword"),
-        world.create_item("Shield"),
-        world.create_item("Health Upgrade"),
-        world.create_item("Health Upgrade"),
+        world.create_item("Floodlight"),
+        world.create_item("Small Shuttle"),
+        world.create_item("Solid-Fuel Thruster"),
+        world.create_item("Smelting Furnace"),
+        world.create_item("Small Solar"),
     ]
 
     # Some items may only exist if the player enables certain options.
     # In our case, If the hammer option is enabled, the sixth item is the Hammer.
     # Otherwise, we add a filler Confetti Cannon.
-    if world.options.hammer:
+    #if world.options.hammer:
         # Once again, it is important to stress that even though the Hammer doesn't always exist,
         # it must be present in the worlds item_name_to_id.
         # Whether it is actually in the itempool is determined purely by whether we create and add the item here.
-        itempool.append(world.create_item("Hammer"))
+        #itempool.append(world.create_item("Hammer"))
 
     # Archipelago requires that each world submits as many locations as it submits items.
     # This is where we can use our filler and trap items.
@@ -154,13 +157,3 @@ def create_all_items(world: APQuestWorld) -> None:
     # Anyway. With our world's itempool finalized, we now need to submit it to the multiworld itempool.
     # This is how the generator actually knows about the existence of our items.
     world.multiworld.itempool += itempool
-
-    # Sometimes, you might want the player to start with certain items already in their inventory.
-    # These items are called "precollected items".
-    # They will be sent as soon as they connect for the first time (depending on your client's item handling flag).
-    # Players can add precollected items themselves via the generic "start_inventory" option.
-    # If you want to add your own precollected items, you can do so via world.push_precollected().
-    if world.options.start_with_one_confetti_cannon:
-        # We're adding a filler item, but you can also add progression items to the player's precollected inventory.
-        starting_confetti_cannon = world.create_item("Confetti Cannon")
-        world.push_precollected(starting_confetti_cannon)

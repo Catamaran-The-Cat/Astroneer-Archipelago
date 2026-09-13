@@ -34,7 +34,7 @@ def create_all_regions(world: AstroneerWorld) -> None:
     atrox = Region("Atrox", world.player, world.multiworld)
 
     # Let's put all these regions in a list.
-    regions = [sylva, desolo, calidor, vesania, novus, glacio, atrox]
+    regions = [menu, sylva, desolo, calidor, vesania, novus, glacio, atrox]
 
     # Some regions may only exist if the player enables certain options.
     # In our case, the Hammer locks the top middle chest in its own room if the hammer option is enabled.
@@ -59,6 +59,9 @@ def connect_regions(world: AstroneerWorld) -> None:
     novus = world.get_region("Novus")
     glacio = world.get_region("Glacio")
     atrox = world.get_region("Atrox")
+    # add all the planets to a list for eisier looping
+    planets = [sylva, desolo, calidor, vesania, novus, glacio, atrox]
+    planet_names = ["Sylva", "Desolo", "Calidor", "Vesania", "Novus", "Glacio", "Atrox"]
 
     # Okay, now we can get connecting. For this, we need to create Entrances.
     # Entrances are inherently one-way, but crucially, AP assumes you can always return to the origin region.
@@ -72,13 +75,27 @@ def connect_regions(world: AstroneerWorld) -> None:
     # An even easier way is to use the region.connect helper.
     menu.connect(sylva, "Menu to Sylva")
 
+    # Connect all the planets
+    # for every planet
+    for i in range(len(planets)):
+        # for every region
+        for j in range(len(planets)):
+            # define our connecting regions
+            region_first = planets[i]
+            region_second = planets[j]
+            
+            # make sure we're not connecting a region to itself
+            if region_first != region_second:
+                # connect the region
+                region_first.connect(region_second, f"{planet_names[i]} to {planet_names[j]}")
+
     # The region.connect helper even allows adding a rule immediately.
     # We'll talk more about rule creation in the set_all_rules() function in rules.py.
-    overworld.connect(top_left_room, "Overworld to Top Left Room", lambda state: state.has("Key", world.player))
+    #overworld.connect(top_left_room, "Overworld to Top Left Room", lambda state: state.has("Key", world.player))
 
     # Some Entrances may only exist if the player enables certain options.
     # In our case, the Hammer locks the top middle chest in its own room if the hammer option is enabled.
     # In this case, we previously created an extra "Top Middle Room" region that we now need to connect to Overworld.
-    if world.options.hammer:
-        top_middle_room = world.get_region("Top Middle Room")
-        overworld.connect(top_middle_room, "Overworld to Top Middle Room")
+    #if world.options.hammer:
+    #    top_middle_room = world.get_region("Top Middle Room")
+    #    overworld.connect(top_middle_room, "Overworld to Top Middle Room")
