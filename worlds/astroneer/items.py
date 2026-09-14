@@ -12,27 +12,28 @@ if TYPE_CHECKING:
 # Even if an item doesn't exist on specific options, it must be present in this lookup.
 ITEM_NAME_TO_ID = {
     # xx(type)
-    # 11(research catalog items) (we start at 11 because 01 is just 1)
-    "Floodlight": 110001,
-    "Small Shuttle": 110002,
-    "Large Printer": 110003, # Unlocked by defualt
-    "Solid-Fuel Thruster": 110004,
-    "Smelting Furnace": 110005,
-    "Small Solar": 110006,
-    # 12(Filler)
+    # 11(Filler) (we start at 11 because 01 is just 1)
     "Compound": 121,
+    # 12(traps)
+    # 13(research catalog items)
+    "Floodlight": 130001,
+    "Small Shuttle": 130002,
+    "Large Printer": 130003, # Unlocked by defualt
+    "Solid-Fuel Thruster": 130004,
+    "Smelting Furnace": 130005,
+    "Small Solar": 130006,
 }
 
 # Items should have a defined default classification.
 # In our case, we will make a dictionary from item name to classification.
 DEFAULT_ITEM_CLASSIFICATIONS = {
+    "Compound": ItemClassification.filler,
     "Floodlight": ItemClassification.filler,
     "Small Shuttle": ItemClassification.progression,
     "Large Printer": ItemClassification.progression,
     "Solid-Fuel Thruster": ItemClassification.progression,
     "Smelting Furnace": ItemClassification.progression,
     "Small Solar": ItemClassification.progression | ItemClassification.useful,
-    "Compound": ItemClassification.filler,
 }
 
 
@@ -157,3 +158,18 @@ def create_all_items(world: AstroneerWorld) -> None:
     # Anyway. With our world's itempool finalized, we now need to submit it to the multiworld itempool.
     # This is how the generator actually knows about the existence of our items.
     world.multiworld.itempool += itempool
+
+    # Sometimes, you might want the player to start with certain items already in their inventory.
+    # These items are called "precollected items".
+    # They will be sent as soon as they connect for the first time (depending on your client's item handling flag).
+    # Players can add precollected items themselves via the generic "start_inventory" option.
+    # If you want to add your own precollected items, you can do so via world.push_precollected().
+
+    # A list containing all the default unlocked research catalog items.
+    starting_research_catalog_items = ["Small Shuttle"]
+    # Add all the starting catalog items
+    # for every item
+    for starting_item in starting_research_catalog_items:
+        # make it an item and add it to your starting items
+        item = world.create_item(starting_item)
+        world.push_precollected(item)

@@ -35,10 +35,12 @@ def set_all_entrance_rules(world: AstroneerWorld) -> None:
         # for every region
         for j in range(len(planet_names)):
             # make sure we're not connecting a region to itself
-            if region_first != region_second:
+            if planet_names[i] != planet_names[j]:
                 # connect the region
                 entrances.append(world.get_entrance(f"{planet_names[i]} to {planet_names[j]}"))
-    print(entrances)
+
+    can_fly_shuttle = Has("Small Shuttle")
+    world.set_rule(entrances[0], can_fly_shuttle)
 
     # Now, let's make some rules!
     # First, let's handle the transition from the overworld to the bottom right room,
@@ -83,7 +85,10 @@ def set_all_entrance_rules(world: AstroneerWorld) -> None:
 
 
 def set_all_location_rules(world: AstroneerWorld) -> None:
-    pass
+    has_power = Has("Small Solar")
+    thats_weird = world.get_location("Well, That's Weird")
+    world.set_rule(thats_weird, has_power)
+
     # Location rules work no differently from Entrance rules.
     # Most of our locations are chests that can simply be opened by walking up to them.
     # Thus, their logical requirements are covered by the Entrance rules of the Entrances that were required to
@@ -146,7 +151,7 @@ def set_completion_condition(world: AstroneerWorld) -> None:
     # Finally, we need to set a completion condition for our world, defining what the player needs to win the game.
     # For this, we can use world.set_completion_rule.
     # You can just set a completion condition directly like any other condition, referencing items the player receives:
-    world.set_completion_rule(HasAll("Sword", "Shield")) # to be changed
+    world.set_completion_rule(Has("Small Shuttle")) # to be changed
 
     # In our case, we went for the Victory event design pattern (see create_events() in locations.py).
     # So lets undo what we just did, and instead set the completion condition to:

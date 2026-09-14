@@ -70,7 +70,7 @@ def create_regular_locations(world: AstroneerWorld) -> None:
     # Aha! So that's why we made that "get_location_names_with_ids" helper method earlier.
     # You also need to pass your overridden Location class.
     sylva_missions = get_location_names_with_ids(
-        ["Planetfall", "Astroneering Bas(e)ics", "Breathing Space", "Resourcing", "Landfilling"]
+        ["Planetfall", "Astroneering Bas(e)ics", "Breathing Space", "Resourcing", "Landfilling", "Lights in the Distance", "Well, That's Weird"]
     )
     sylva.add_locations(sylva_missions, AstroneerLocation)
 
@@ -95,6 +95,7 @@ def create_regular_locations(world: AstroneerWorld) -> None:
 
 def create_events(world: AstroneerWorld) -> None:
     pass
+
     # Sometimes, the player may perform in-game actions that allow them to progress which are not related to Items.
     # In our case, the player must press a button in the top left room to open the final boss door.
     # AP has something for this purpose: "Event locations" and "Event items".
