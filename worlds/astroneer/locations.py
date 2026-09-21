@@ -9,19 +9,74 @@ from . import items
 if TYPE_CHECKING:
     from .world import AstroneerWorld
 
+# Astroneer's unique ap id
+from .constants import ASTRONEER_ID
+
 # Every location must have a unique integer ID associated with it.
 # We will have a lookup from location name to ID here that, in world.py, we will import and bind to the world class.
 # Even if a location doesn't exist on specific options, it must be present in this lookup.
 LOCATION_NAME_TO_ID = {
-    # xx(location type)
-    # 11(missions) (it won't let me start with 01 :( )
-    "Planetfall": 111, # Trailhead01_1.1
-    "Astroneering Bas(e)ics": 112, # Trailhead01_1.1.1
-    "Breathing Space": 113, # Trailhead01_1.1.1a
-    "Resourcing": 114, # Trailhead01_1.1.1b
+    # xx (location type)
+    # 11 (missions) (it won't let me start with 01 :( )
+    "Planetfall": 111 + ASTRONEER_ID, # Trailhead01_1.1
+    "Astroneering Bas(e)ics": 112 + ASTRONEER_ID, # Trailhead01_1.1.1
+    "Breathing Space": 113 + ASTRONEER_ID, # Trailhead01_1.1.1a
+    "Resourcing": 114 + ASTRONEER_ID, # Trailhead01_1.1.1b
     "Landfilling": 115, # Trailhead01_1.1.1c
-    "Lights in the Distance": 116, # Mission_2-1
-    "Well, That's Weird": 117, # Mission_2-2
+    "Lights in the Distance": 116 + ASTRONEER_ID, # Mission_2-1
+    "Well, That's Weird": 117 + ASTRONEER_ID, # Mission_2-2
+
+    # 12 (gatway chambers)
+    # Sylva
+    "Sylva Gateway Chamber Activated x1": 121 + ASTRONEER_ID,
+    "Sylva Gateway Chamber Activated x2": 122 + ASTRONEER_ID,
+    "Sylva Gateway Chamber Activated x3": 123 + ASTRONEER_ID,
+    "Sylva Gateway Chamber Activated x4": 124 + ASTRONEER_ID,
+    "Sylva Gateway Chamber Activated x5": 125 + ASTRONEER_ID,
+    "Sylva Gateway Chamber Activated x6": 126 + ASTRONEER_ID,
+    # Desolo
+    "Desolo Gateway Chamber Activated x1": 127 + ASTRONEER_ID,
+    "Desolo Gateway Chamber Activated x2": 128 + ASTRONEER_ID,
+    # Calidor
+    "Calidor Gateway Chamber Activated x1": 129 + ASTRONEER_ID,
+    "Calidor Gateway Chamber Activated x2": 1210 + ASTRONEER_ID,
+    "Calidor Gateway Chamber Activated x3": 1211 + ASTRONEER_ID,
+    "Calidor Gateway Chamber Activated x4": 1212 + ASTRONEER_ID,
+    "Calidor Gateway Chamber Activated x5": 1213 + ASTRONEER_ID,
+    "Calidor Gateway Chamber Activated x6": 1214 + ASTRONEER_ID,
+    # Vesania
+    "Vesania Gateway Chamber Activated x1": 1215 + ASTRONEER_ID,
+    "Vesania Gateway Chamber Activated x2": 1216 + ASTRONEER_ID,
+    "Vesania Gateway Chamber Activated x3": 1217 + ASTRONEER_ID,
+    "Vesania Gateway Chamber Activated x4": 1218 + ASTRONEER_ID,
+    "Vesania Gateway Chamber Activated x5": 1219 + ASTRONEER_ID,
+    "Vesania Gateway Chamber Activated x6": 1220 + ASTRONEER_ID,
+    # Novus
+    "Novus Gateway Chamber Activated x1": 1221 + ASTRONEER_ID,
+    "Novus Gateway Chamber Activated x2": 1222 + ASTRONEER_ID,
+    # Glacio
+    "Glacio Gateway Chamber Activated x1": 1223 + ASTRONEER_ID,
+    "Glacio Gateway Chamber Activated x2": 1224 + ASTRONEER_ID,
+    "Glacio Gateway Chamber Activated x3": 1225 + ASTRONEER_ID,
+    "Glacio Gateway Chamber Activated x4": 1226 + ASTRONEER_ID,
+    "Glacio Gateway Chamber Activated x5": 1227 + ASTRONEER_ID,
+    "Glacio Gateway Chamber Activated x6": 1228 + ASTRONEER_ID,
+    # Atrox
+    "Atrox Gateway Chamber Activated x1": 1229 + ASTRONEER_ID,
+    "Atrox Gateway Chamber Activated x2": 1230 + ASTRONEER_ID,
+    "Atrox Gateway Chamber Activated x3": 1231 + ASTRONEER_ID,
+    "Atrox Gateway Chamber Activated x4": 1232 + ASTRONEER_ID,
+    "Atrox Gateway Chamber Activated x5": 1233 + ASTRONEER_ID,
+    "Atrox Gateway Chamber Activated x6": 1234 + ASTRONEER_ID,
+
+    # 13 (cores aka gateway engines)
+    "Sylva's Core Activated": 131 + ASTRONEER_ID,
+    "Desolo's Core Activated": 132 + ASTRONEER_ID,
+    "Calidor's Core Activated": 133 + ASTRONEER_ID,
+    "Vesania's Core Activated": 134 + ASTRONEER_ID,
+    "Novus's Core Activated": 135 + ASTRONEER_ID,
+    "Glacio's Core Activated": 136 + ASTRONEER_ID,
+    "Atrox's Core Activated": 137 + ASTRONEER_ID,
 }
 
 

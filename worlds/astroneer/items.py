@@ -7,21 +7,125 @@ from BaseClasses import Item, ItemClassification
 if TYPE_CHECKING:
     from .world import AstroneerWorld
 
+# Astroneer's unique ap id
+from .constants import ASTRONEER_ID
+
 # Every item must have a unique integer ID associated with it.
 # We will have a lookup from item name to ID here that, in world.py, we will import and bind to the world class.
 # Even if an item doesn't exist on specific options, it must be present in this lookup.
 ITEM_NAME_TO_ID = {
-    # xx(type)
-    # 11(Filler) (we start at 11 because 01 is just 1)
-    "Compound": 121,
-    # 12(traps)
-    # 13(research catalog items)
-    "Floodlight": 130001,
+    # xx (item type)
+    # 11 (Filler) (we start at 11 because 01 is just 1)
+    "Compound": 121 + ASTRONEER_ID,
+
+    # 12 (traps)
+
+    # 13 (research catalog items)
+    # Tier 1
+    "Small Printer": 131 + ASTRONEER_ID, # unlocked by default
+    "Packager": 132 + ASTRONEER_ID,
+    "Leveling Block": 133 + ASTRONEER_ID,
+    "Tethers": 134 + ASTRONEER_ID, # unlocked by default
+    "Oxygen Filters": 135 + ASTRONEER_ID, # unlocked by default
+    "Oxygen Tank": 136 + ASTRONEER_ID,
+    "Portable Oxygenator": 137 + ASTRONEER_ID,
+    "Small Canister": 138 + ASTRONEER_ID, # unlocked by default
+    "Beacon": 139 + ASTRONEER_ID, # unlocked by default
+    "Worklight": 1310 + ASTRONEER_ID, # unlocked by default
+    "Glowsticks": 1311 + ASTRONEER_ID,
+    "Floodlight": 1312 + ASTRONEER_ID,
+    "Small Generator": 1313 + ASTRONEER_ID, # unlocked by default
+    "Power Cells": 1314 + ASTRONEER_ID,
+    "Small Solar": 1315 + ASTRONEER_ID,
+    "Small Wind Turbine": 1316 + ASTRONEER_ID,
+    "Small Battery": 1317 + ASTRONEER_ID,
+    "Boost Mod": 1318 + ASTRONEER_ID,
+    "Wide Mod": 1319 + ASTRONEER_ID,
+    "Narrow Mod": 1320 + ASTRONEER_ID,
+    "Inhibitor Mod": 1321 + ASTRONEER_ID,
+    "Alignment Mod": 1322 + ASTRONEER_ID,
+    "Drill Mod 1": 1323 + ASTRONEER_ID,
+    "Drill Mod 2": 1324 + ASTRONEER_ID,
+    "Drill Mod 3": 1325 + ASTRONEER_ID,
+    "Dynamite": 1326 + ASTRONEER_ID,
+    "Fireworks": 1327 + ASTRONEER_ID,
+    "Small Camera": 1328 + ASTRONEER_ID,
+    "Small Trumpet Horn": 1329 + ASTRONEER_ID,
+    "Holographic Figurine": 1330 + ASTRONEER_ID,
+    "Terrain Analyzer": 1331 + ASTRONEER_ID,
+    "Probe Scanner": 1332 + ASTRONEER_ID,
+    "Solid-Fuel Jump Set": 1333 + ASTRONEER_ID,
+    "Hydrazine Jet Pack": 1334 + ASTRONEER_ID,
+    "Hoverboard": 1335 + ASTRONEER_ID, # mission unlocked
+    # Tier 2
+    "Medium Printer": 1336 + ASTRONEER_ID, # unlocked by default
+    "Oxygenator": 1337 + ASTRONEER_ID,
+    "Medium Shredder": 1338 + ASTRONEER_ID,
+    "Field Shelter": 1339 + ASTRONEER_ID,
+    "Auto Arm": 1340 + ASTRONEER_ID,
+    "Medium Resource Canister": 1341 + ASTRONEER_ID,
+    "Medium Fluid & Soil Canister": 1342 + ASTRONEER_ID,
+    "Medium Gas Canister": 1343 + ASTRONEER_ID,
+    "Power Sensor": 1344 + ASTRONEER_ID,
+    "Storage Sensor": 1345 + ASTRONEER_ID,
+    "Battery Sensor": 1346 + ASTRONEER_ID,
+    "Button Repeater": 1347 + ASTRONEER_ID,
+    "Proximity Repeater": 1348 + ASTRONEER_ID,
+    "Delay Repeater": 1349 + ASTRONEER_ID,
+    "Count Repeater": 1350 + ASTRONEER_ID,
+    "Power Extenders": 1351 + ASTRONEER_ID,
+    "Power Switch": 1352 + ASTRONEER_ID,
+    "Splitter": 1353 + ASTRONEER_ID,
+    "Medium Generator": 1354 + ASTRONEER_ID,
+    "Medium Solar Panel": 1355 + ASTRONEER_ID,
+    "Medium Wind Turbine": 1356 + ASTRONEER_ID,
+    "Medium Battery": 1357 + ASTRONEER_ID,
+    "RTG": 1358 + ASTRONEER_ID,
+    "Medium Platform A": 1359 + ASTRONEER_ID, # unlocked by default
+    "Medium Platform B": 1360 + ASTRONEER_ID,
+    "Medium Platform C": 1361 + ASTRONEER_ID,
+    "Tall Platform": 1362 + ASTRONEER_ID,
+    "Medium Storage": 1363 + ASTRONEER_ID, # unlocked by default
+    "Medium Storage Silo": 1364 + ASTRONEER_ID,
+    "Tall Storage": 1365 + ASTRONEER_ID,
+    "Rover Seat": 1366 + ASTRONEER_ID, # unlocked by default
+    "Tractor": 1367 + ASTRONEER_ID,
+    "Trailer": 1368 + ASTRONEER_ID,
+    "Medium Buggy Horn": 1369 + ASTRONEER_ID,
+    "Winch": 1370 + ASTRONEER_ID,
+    "Paver": 1371 + ASTRONEER_ID,
+    "Drill Strength 1": 1372 + ASTRONEER_ID,
+    "Drill Strength 2": 1373 + ASTRONEER_ID,
+    "Drill Strength 3": 1374 + ASTRONEER_ID,
+    "Solid-Fuel Thruster": 1375 + ASTRONEER_ID,
+    "Hydrazine Thruster": 1376 + ASTRONEER_ID,
+    "Rail Post Bundle": 1377 + ASTRONEER_ID,
+    "Tall Rail Post Bundle": 1378 + ASTRONEER_ID,
+    "Rail Junction Bundle": 1379 + ASTRONEER_ID,
+    # Tier 3
+    "Large Printer": 1380 + ASTRONEER_ID, # unlocked by default
+    "Smelting Furnace": 1381 + ASTRONEER_ID,
+    "Soil Centrifuge": 1382 + ASTRONEER_ID,
+    "Chemistry Lab": 1383 + ASTRONEER_ID,
+    "Atmospheric Condenser": 1384 + ASTRONEER_ID,
+    "Research Chamber": 1385 + ASTRONEER_ID, # unlocked by default
+    "EXO Request Platform": 1386 + ASTRONEER_ID, # unlocked by default and might not be relevent to a randomizer
+    "Trade Platform": 1387 + ASTRONEER_ID,
+    "Large Shredder": 1388 + ASTRONEER_ID,
+    "Large Solar Panel": 1389 + ASTRONEER_ID,
+    "Large Wind Turbine": 1390 + ASTRONEER_ID,
+    "Large Platform A": 1391 + ASTRONEER_ID, # unlocked by default
+    "Large Platform B": 1392 + ASTRONEER_ID,
+    "Large Platform C": 1393 + ASTRONEER_ID,
+    "Large T-Platform": 1394 + ASTRONEER_ID,
+    "Large Curved Platform": 1395 + ASTRONEER_ID,
+    "Large Extended Platform": 1396 + ASTRONEER_ID,
+    "Large Resouce Canister": 1397 + ASTRONEER_ID,
+    "Large Storage": 1398 + ASTRONEER_ID,
+    "Large Storage Silo A": 1399 + ASTRONEER_ID,
+
+
     "Small Shuttle": 130002,
-    "Large Printer": 130003, # Unlocked by defualt
-    "Solid-Fuel Thruster": 130004,
-    "Smelting Furnace": 130005,
-    "Small Solar": 130006,
 }
 
 # Items should have a defined default classification.
