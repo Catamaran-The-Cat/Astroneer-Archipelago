@@ -23,6 +23,7 @@ LOCATION_NAME_TO_ID = {
     "Breathing Space": 113 + ASTRONEER_ID, # Trailhead01_1.1.1a
     "Resourcing": 114 + ASTRONEER_ID, # Trailhead01_1.1.1b
     "Landfilling": 115, # Trailhead01_1.1.1c
+    "Printing Up": 11, # Trailhead01_1.1.1.1
     "Lights in the Distance": 116 + ASTRONEER_ID, # Mission_2-1
     "Well, That's Weird": 117 + ASTRONEER_ID, # Mission_2-2
 

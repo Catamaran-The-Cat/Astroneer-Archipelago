@@ -123,9 +123,45 @@ ITEM_NAME_TO_ID = {
     "Large Resouce Canister": 1397 + ASTRONEER_ID,
     "Large Storage": 1398 + ASTRONEER_ID,
     "Large Storage Silo A": 1399 + ASTRONEER_ID,
-
-
-    "Small Shuttle": 130002,
+    "Large Storage Silo B": 13100 + ASTRONEER_ID,
+    "Large Active Storage": 13101 + ASTRONEER_ID,
+    "Buggy": 13102 + ASTRONEER_ID,
+    "Large Rover Seat": 13103 + ASTRONEER_ID,
+    "Medium Rover": 13104 + ASTRONEER_ID,
+    "VTOL": 13105 + ASTRONEER_ID, # mission unlocked
+    "Crane": 13106 + ASTRONEER_ID,
+    "Large Fog Horn": 13107 + ASTRONEER_ID,
+    "Rail Engine": 13108 + ASTRONEER_ID,
+    "Rail Car": 13109 + ASTRONEER_ID,
+    "Recreational Sphere": 13110 + ASTRONEER_ID,
+    # Tier 4
+    "Shelter": 13111 + ASTRONEER_ID, # unlocked by default
+    "Auto Extractor": 13112 + ASTRONEER_ID,
+    "Extra Large Shredder": 13113 + ASTRONEER_ID,
+    "Solar Array": 13114 + ASTRONEER_ID,
+    "XL Wind Turbine": 13115 + ASTRONEER_ID,
+    "Medium Sensor Arch": 13116 + ASTRONEER_ID,
+    "XL Sensor Arch": 13117 + ASTRONEER_ID,
+    "XL Sensor Canopy": 13118 + ASTRONEER_ID,
+    "Large Sensor Ring": 13119 + ASTRONEER_ID,
+    "Large Sensor Hoop A": 13120 + ASTRONEER_ID,
+    "Large Sensor Hoop B": 13121 + ASTRONEER_ID,
+    "XL Sensor Hoop A": 13122 + ASTRONEER_ID,
+    "XL Sensor Hoop B": 13123 + ASTRONEER_ID,
+    "Extra Large Platform A": 13124 + ASTRONEER_ID,
+    "Extra Large Platform B": 13125 + ASTRONEER_ID,
+    "Extra Large Platform C": 13126 + ASTRONEER_ID,
+    "Extra Large Curved Platform": 13127 + ASTRONEER_ID,
+    "XL Extended Platform": 13128 + ASTRONEER_ID,
+    "Figurine Platform": 13129 + ASTRONEER_ID,
+    "Extra Large Storage": 13130 + ASTRONEER_ID,
+    "Large Rover": 13131 + ASTRONEER_ID,
+    "Landing Pad": 13132 + ASTRONEER_ID,
+    "Small Shuttle": 13133 + ASTRONEER_ID,
+    "Medium Shuttle": 13134 + ASTRONEER_ID,
+    "Large Shuttle": 13135 + ASTRONEER_ID,
+    "Mega-Mini Training Shuttle": 13136 + ASTRONEER_ID, # mission unlocked
+    "Rail Station": 13137 + ASTRONEER_ID,
 }
 
 # Items should have a defined default classification.
