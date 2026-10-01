@@ -18,14 +18,99 @@ from .constants import ASTRONEER_ID
 LOCATION_NAME_TO_ID = {
     # xx (location type)
     # 11 (missions) (it won't let me start with 01 :( )
-    "Planetfall": 111 + ASTRONEER_ID, # Trailhead01_1.1
-    "Astroneering Bas(e)ics": 112 + ASTRONEER_ID, # Trailhead01_1.1.1
-    "Breathing Space": 113 + ASTRONEER_ID, # Trailhead01_1.1.1a
-    "Resourcing": 114 + ASTRONEER_ID, # Trailhead01_1.1.1b
-    "Landfilling": 115, # Trailhead01_1.1.1c
-    "Printing Up": 11, # Trailhead01_1.1.1.1
-    "Lights in the Distance": 116 + ASTRONEER_ID, # Mission_2-1
-    "Well, That's Weird": 117 + ASTRONEER_ID, # Mission_2-2
+    # MissionTrailhead01-Base
+    "Planetfall": 11 + ASTRONEER_ID, # Trailhead01_1.1
+    "Astroneering Bas(e)ics": 12 + ASTRONEER_ID, # Trailhead01_1.1.1
+    "Breathing Space": 11 + ASTRONEER_ID, # Trailhead01_1.1.1a
+    "Resourcing": 11 + ASTRONEER_ID, # Trailhead01_1.1.1b
+    "Landfilling": 11 + ASTRONEER_ID, # Trailhead01_1.1.1c
+    "Re-Tooling": 11 + ASTRONEER_ID, # Trailhead01_1.1.1d
+    "Printing Up": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1
+    "Powerful Problems": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.1
+    "Battery Backup": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.1.1
+    "Eyes On Lithium": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.1.1.1
+    "Medium Battery": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.1.1.1.1
+    "High Tech Spec": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.1.1.1.1.1 (that's a lot of 1s)
+    # CraftingAndExplorationMissionPathData
+    "Smeltering Hot": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2
+    "To Parts Unknown": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.1
+    "Forward Progress": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.1.1
+    "Safe as Houses": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.1.1.1
+    "Talking Tungsten": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.2
+    "Materials Matters": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.2.1
+    "From Thin Air": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.2.1.1
+    "Fuel for Thought": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.2.1.1.1
+    "Composite Perfection": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.2.1.1.2
+    "Movin' & Haulin'": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.3
+    "Relocation Package": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.3.1
+    "Shred, Scrap, Trade": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.2.3.1.1
+
+    "For Science!": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3
+    "Take a Byte": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3.1
+    "Advanced Explorer Kit": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3.1.1
+    "Unlocked Potential": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3.1.1.1
+    "Here We Go A Sampling": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3.2
+    "Master of Unboxing": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3.2.1
+    "Cracking Caches": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.3.3
+    # AutomationMissionPathData
+    "Arm Yourself!": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.4
+    "Stuffed Storage": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.4.1
+    "Unearthed": 11 + ASTRONEER_ID, # Trailhead01_1.1.1.1.4.1.1
+
+    "Lights in the Distance": 11 + ASTRONEER_ID, # Mission_2-1
+    "Well, That's Weird": 11 + ASTRONEER_ID, # Mission_2-2
+    "A Core Concept": 11 + ASTRONEER_ID, #Missions_MissionData_2.1.1.1._Title
+    "There's Something Out There": 11 + ASTRONEER_ID, #Missions_MissionData_2.1.1.1.1._Title
+    "Multi-Core Processing": 11 + ASTRONEER_ID, #Missions_MissionData_2.1.1.1.2._Title
+    "Through the Looking Glass": 11 + ASTRONEER_ID, #Missions_MissionData_2.1.1.1.1.1._Title
+    "Echoes of the Past": 11 + ASTRONEER_ID, #Missions_MissionData_3.1._Title
+    "Chasing Signals": 11 + ASTRONEER_ID, #Missions_MissionData_3.1.1._Title
+    "Things to Remember": 11 + ASTRONEER_ID, #Missions_MissionData_3.1.1.1._Title
+    "When and Where?": 11 + ASTRONEER_ID, #Missions_MissionData_3.1.1.1.1._Title
+    "Prototype Recovery": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle1._Title
+    "Tracing the Transmission": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle2._Title
+    "Ingredient Investigations": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle3-1._Title
+    "Electrical Engineering": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle3-2._Title
+    "Onboarding": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle4._Title
+    "Vertical Thinking": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle5._Title
+    "Bootstrapping": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle6._Title
+    "Substance Selection": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle7-1._Title
+    "What The Thrust?": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle7-2._Title
+    "Further Refinement": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle8._Title
+    "Analysis Paralysis": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle9._Title
+    "Finished Product": 11 + ASTRONEER_ID, #Missions_MissionData_Vehicle10._Title
+    "Globe Trotting": 11 + ASTRONEER_ID, # VehicleGlobe1
+    # MissionRails-DepotA
+    "Digging Deeper": 11 + ASTRONEER_ID, #(Rails000?) Rails_MissionData_Rails000_Title
+    "Snow Piercer": 11 + ASTRONEER_ID, # Rails001
+    "Windup": 11 + ASTRONEER_ID, # Rails002a
+    "Logistical Chip": 11 + ASTRONEER_ID, # Rails002b
+    "Back On Track": 11 + ASTRONEER_ID, # Rails003
+    "Engine-uity": 11 + ASTRONEER_ID, # Rails004a
+    "All Aboard": 11 + ASTRONEER_ID, # Rails004b
+    "Reinstation": 11 + ASTRONEER_ID, # Rails005
+    "Site-ings": 11 + ASTRONEER_ID, # Rails006
+    "Better Freight Than Never": 11 + ASTRONEER_ID, # Rails007a
+    "Cooler Runnings": 11 + ASTRONEER_ID, # Rails007b
+    "Rubberstamp": 11 + ASTRONEER_ID, # Rails008
+    
+    "Curiouser And Curiouser": 11 + ASTRONEER_ID, #Rails_MissionData_Rails009_Title
+    "Sunrise": 11 + ASTRONEER_ID, #Rails_MissionData_Rails010a_Title
+    "Chipping In": 11 + ASTRONEER_ID, #Rails_MissionData_Rails010b_Title
+    "Manifestation": 11 + ASTRONEER_ID, #Rails_MissionData_Rails011_Title
+    "Pile On": 11 + ASTRONEER_ID, #Rails_MissionData_Rails012_Title
+    "Just The Facts": 11 + ASTRONEER_ID, #Rails_MissionData_Rails013a_Title
+    "They Belong In a Museum": 11 + ASTRONEER_ID, #Rails_MissionData_Rails013b_Title
+    "Logbook": 11 + ASTRONEER_ID, #Rails_MissionData_Rails014_Title
+    "Travelling Companion": 11 + ASTRONEER_ID, #Rails_MissionData_Rails015_Title
+    "Discovery Train": 11 + ASTRONEER_ID, #Rails_MissionData_Rails016_Title
+    "Central Processing": 11 + ASTRONEER_ID, #Rails_MissionData_Rails017_Title
+    "Day & Night": 11 + ASTRONEER_ID, #Rails_MissionData_Rails018a_Title
+    "Dip Some Chips": 11 + ASTRONEER_ID, #Rails_MissionData_Rails018b_Title
+    "Un-arailable": 11 + ASTRONEER_ID, #Rails_MissionData_Rails019_Title
+    "Mystery Shrooms": 11 + ASTRONEER_ID, #Rails_MissionData_Rails020a_Title
+    "Singular Substance": 11 + ASTRONEER_ID, #Rails_MissionData_Rails020b_Title
+    "Training Complete": 11 + ASTRONEER_ID, #Rails_MissionData_Rails021_Title
 
     # 12 (gatway chambers)
     # Sylva
